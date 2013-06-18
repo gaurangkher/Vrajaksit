@@ -16,11 +16,14 @@ get '/download' => sub {
 };
 
 post '/upload_file' => sub {
-	my $files  = request->upload('filename');
-	info ref($files);
-	$files->copy_to('/home/gaurang/git/');
+	my @files  = request->upload('filename');
+	my @names;
+	for my $file (@files) {
+		push @names, $file->filename;
+		$file->copy_to('/home/gaurang/git/');
+	}
 	template 'upload', {
-		result => $files->filename . " uploaded successfully"
+		result => \@names,
 	};
 };
 

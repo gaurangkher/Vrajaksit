@@ -1,7 +1,15 @@
 
 <p> Select file to upload</p>
 <form name="upload_file" action="/upload_file" method="post" enctype="multipart/form-data">
-FileName: <input type="file" name="filename">
+FileName: <input type="file" name="filename" multiple />
 <input type="submit" value="Submit">
 </form>
-<p> <% result %> </p>
+<% IF result && result.size %>
+	<p id='res'> Files Uploaded Succesfully are: </p>
+	<% FOREACH file IN result %>
+		<p> <% file %> </p><br />
+	<% END %>
+<% ELSE %>
+	<p id='res'> Files Upload Failed! :( </p>
+<% END %>
+
