@@ -1,0 +1,7 @@
+
+<p> Select file to upload</p>
+<form name="upload_file" action="/upload_file" method="post" enctype="multipart/form-data">
+FileName: <input type="file" name="filename">
+<input type="submit" value="Submit">
+</form>
+<p> <% result %> </p>
