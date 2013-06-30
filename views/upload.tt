@@ -14,5 +14,7 @@ FileName: <input type="file" name="filename" multiple />
 		<p id='res'> Files Upload Failed! :( </p>
 	<% END %>
 <% END %>
+<p></p>
+<a href="/" > Back </a>
 	
 
