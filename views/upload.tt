@@ -4,12 +4,15 @@
 FileName: <input type="file" name="filename" multiple />
 <input type="submit" value="Submit">
 </form>
-<% IF result && result.size %>
-	<p id='res'> Files Uploaded Succesfully are: </p>
-	<% FOREACH file IN result %>
-		<p> <% file %> </p><br />
+<% IF status %>
+	<% IF result  %>
+		<p id='res'> Files Uploaded Succesfully are: </p>
+			<% FOREACH file IN result %>
+				<p> <% file %> </p><br />
+			<% END %>
+	<% ELSE %>
+		<p id='res'> Files Upload Failed! :( </p>
 	<% END %>
-<% ELSE %>
-	<p id='res'> Files Upload Failed! :( </p>
 <% END %>
+	
 

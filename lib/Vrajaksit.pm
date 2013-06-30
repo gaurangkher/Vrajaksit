@@ -19,7 +19,9 @@ get '/' => sub {
 };
 
 get '/upload' => sub {
-		template 'upload';
+		template 'upload', {
+			status => 0,
+		};
 };
 
 get '/download' => sub {
@@ -53,6 +55,7 @@ post '/upload_file' => sub {
 	}
 	template 'upload', {
 		result => \@names,
+		status => 1,
 	};
 };
 

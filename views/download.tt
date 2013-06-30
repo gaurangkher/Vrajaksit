@@ -1,0 +1,7 @@
+<h2> Here's the files uploaded so far.. </h2>
+<ul>
+<% FOREACH f IN list %>
+	<li><a href="/download_file/<% f.file %>" > <% f.file %> </a> </p></li>
+<% END %>
+</ul>
+
