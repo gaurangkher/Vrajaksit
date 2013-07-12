@@ -8,6 +8,30 @@ use File::Basename;
 
 our $VERSION = '0.1';
 
+session password => 'pivladagad';
+session login    => 'yellowstone';
+
+hook 'before' => sub {
+    if (! session('login') && request->path_info !~ m{^/login}) {
+     	var requested_path => request->path_info;
+        request->path_info('/login');
+    }
+};
+
+get '/login' => sub {
+    template 'login', { path => vars->{requested_path} };
+};
+
+post '/login' => sub {
+    if (params->{login} eq 'yellowstone' && params->{password} eq 'pivladagad') {
+     	session login 	 => params->{login};
+     	session password => params->{password}; 
+		redirect params->{path} || '/';
+    } else {
+    	redirect '/login?failed=1';
+    }
+};
+
 get '/' => sub {
     my $fs = Sys::Filesystem->new();
     my @filesystems = $fs->filesystems();

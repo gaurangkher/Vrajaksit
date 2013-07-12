@@ -20,6 +20,9 @@ charset: "UTF-8"
 
 #template: "template_simple"
 
+session: "Storable"
+session_dir: "/tmp/dancer"
+
 template: "template_toolkit"
 engines:
    template:
